@@ -1,0 +1,15 @@
+---
+layout: layouts/main.vto
+---
+<article>
+<h1>{{ title }}</h1>
+{{ content }}
+</article>
+
+<div class="gallery-grid">
+{{for gallery of search.pages("type=gallery !path.endsWith('index.md')")}}
+  {{if !filter || gallery.categories.includes(filter)}}
+    {{ include "templates/partials/gallery-card.vto" {item: gallery, type: "gallery"} }}
+  {{/if}}
+{{/for}}
+</div> 

@@ -1,0 +1,36 @@
+<a href="{{ item.url }}" class="gallery-card">
+  {{if item.featured}}
+  <div class="featured-tag">★ Featured</div>
+  {{/if}}
+  
+  <div class="gallery-header">
+    <div class="icon-wrapper">
+      {{if item.icon}}
+        <span class="gallery-icon">{{ item.icon }}</span>
+      {{else}}
+        <span class="gallery-icon">📷</span>
+      {{/if}}
+    </div>
+    <div class="header-content">
+      <h2 class="card-title">{{ item.title }}</h2>
+      {{if item.subtitle}}
+      <div class="gallery-subtitle">{{ item.subtitle }}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="gallery-images">
+    {{if item.images && item.images.length}}
+      <img src="{{ item.images[0] }}" alt="Gallery preview" class="gallery-preview">
+      <div class="image-count">+{{ item.images.length - 1 }} more</div>
+    {{/if}}
+  </div>
+
+  {{if item.categories}}
+  <div class="gallery-categories">
+    {{for category of item.categories}}
+      <span class="category">{{ category }}</span>
+    {{/for}}
+  </div>
+  {{/if}}
+</a> 

@@ -1,0 +1,48 @@
+---
+layout: layouts/main.vto
+---
+<article class="gallery-page">
+  <nav class="breadcrumb">
+    <a href="/gallery">Gallery</a> / {{ title }}
+  </nav>
+
+  <header class="gallery-header">
+    <h1>{{ title }}</h1>
+    {{if subtitle}}
+      <p class="gallery-subtitle">{{ subtitle }}</p>
+    {{/if}}
+  </header>
+
+  {{ content }}
+
+  {{if images && images.length}}
+  <div class="gallery-images-grid">
+    {{for image of images}}
+      <figure class="gallery-figure">
+        <img src="{{ image.url }}" alt="{{ image.caption || title }}" class="gallery-image" loading="lazy">
+        {{if image.caption}}
+          <figcaption>{{ image.caption }}</figcaption>
+        {{/if}}
+      </figure>
+    {{/for}}
+  </div>
+  {{/if}}
+
+  {{if categories}}
+  <div class="gallery-categories">
+    {{for category of categories}}
+      <a href="/gallery?filter={{ category }}" class="category">{{ category }}</a>
+    {{/for}}
+  </div>
+  {{/if}}
+
+  <nav class="page-navigation">
+    {{if prev}}
+    <a href="{{ prev.url }}" class="nav-link">← {{ prev.title }}</a>
+    {{/if}}
+    <a href="/gallery" class="nav-link nav-center">Back to Gallery</a>
+    {{if next}}
+    <a href="{{ next.url }}" class="nav-link">{{ next.title }} →</a>
+    {{/if}}
+  </nav>
+</article> 

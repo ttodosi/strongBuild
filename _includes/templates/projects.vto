@@ -1,0 +1,15 @@
+---
+layout: layouts/main.vto
+---
+<article>
+<h1>{{ title }}</h1>
+{{ content }}
+</article>
+
+<div class="projects-grid">
+{{for project of search.pages("type=project !path.endsWith('index.md')")}}
+  {{if !filter || project.categories.includes(filter)}}
+    {{ include "templates/partials/card.vto" {item: project, type: "project"} }}
+  {{/if}}
+{{/for}}
+</div> 

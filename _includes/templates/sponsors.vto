@@ -1,0 +1,29 @@
+---
+layout: layouts/main.vto
+---
+<article>
+<h1>{{ title }}</h1>
+{{ content }}
+</article>
+
+<div class="sponsors-section">
+  <div class="gold-sponsors">
+    <h2>Gold Sponsors</h2>
+    {{for sponsor of search.pages("type=sponsor level=gold", "title=asc")}}
+      {{ include "templates/partials/card.vto" {item: sponsor, type: "sponsor"} }}
+    {{/for}}
+  </div>
+
+  <div class="silver-sponsors">
+    <h2>Silver Sponsors</h2>
+    {{for sponsor of search.pages("type=sponsor level=silver", "title=asc")}}
+      {{ include "templates/partials/card.vto" {item: sponsor, type: "sponsor"} }}
+    {{/for}}
+  </div>
+</div>
+
+<div class="become-sponsor">
+  <h2>Become a Sponsor</h2>
+  <p>Support traditional building knowledge preservation.</p>
+  <a href="/contact" class="cta-button">Contact Us</a>
+</div> 

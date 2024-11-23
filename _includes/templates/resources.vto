@@ -1,0 +1,13 @@
+---
+layout: layouts/main.vto
+---
+<article>
+<h1>{{ title }}</h1>
+{{ content }}
+</article>
+
+<div class="resources-grid">
+{{for resource of search.pages("type=resource !path.endsWith('index.md')")}}
+  {{ include "templates/partials/card.vto" {item: resource, type: "resource"} }}
+{{/for}}
+</div> 

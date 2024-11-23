@@ -1,0 +1,18 @@
+---
+layout: layouts/main.vto
+---
+<article>
+<h1>{{ title }}</h1>
+{{ content }}
+
+<div class="faq-container">
+  {{for question of questions}}
+    <details class="faq-item">
+      <summary>{{ question.q }}</summary>
+      <div class="faq-answer">
+        {{ question.a }}
+      </div>
+    </details>
+  {{/for}}
+</div>
+</article> 

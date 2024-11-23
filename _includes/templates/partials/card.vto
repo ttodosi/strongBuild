@@ -1,0 +1,30 @@
+<a href="{{ item.url }}" class="{{type}}-card">
+  {{if item.featured}}
+  <div class="featured-tag">★ Featured</div>
+  {{/if}}
+  <div class="{{type}}-header">
+    <div class="icon-wrapper">
+      {{if item.icon}}
+        <span class="{{type}}-icon">{{ item.icon }}</span>
+      {{else}}
+        <span class="{{type}}-icon">▪</span>
+      {{/if}}
+    </div>
+    <div class="header-content">
+      <h2 class="card-title">{{ item.title }}</h2>
+      {{if item.subtitle}}
+      <div class="{{type}}-subtitle">{{ item.subtitle }}</div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="{{type}}-content">
+    {{ item.excerpt || item.description }}
+  </div>
+  {{if item.categories}}
+  <div class="{{type}}-categories">
+    {{for category of item.categories}}
+      <span class="category">{{ category }}</span>
+    {{/for}}
+  </div>
+  {{/if}}
+</a> 

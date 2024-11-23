@@ -1,0 +1,15 @@
+---
+layout: layouts/main.vto
+---
+<article>
+<h1>Techniques & Tips</h1>
+<p>Browse traditional building knowledge by category:</p>
+</article>
+
+<div class="techniques-grid">
+{{for technique of search.pages("type=technique !path.endsWith('index.md')")}}
+  {{if !filter || technique.categories.includes(filter)}}
+    {{ include "templates/partials/card.vto" {item: technique, type: "technique"} }}
+  {{/if}}
+{{/for}}
+</div> 
