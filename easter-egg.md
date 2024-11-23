@@ -2,7 +2,7 @@
 title: "🥚 You Found It!"
 layout: layouts/main.vto
 ---
-
+test
 # 🎉 Congratulations!
 
 You've discovered our hidden easter egg page. As a fellow enthusiast of traditional building techniques, you might appreciate these fun facts:
